@@ -14,8 +14,13 @@ impl Point {
         Self {
             x: x,
             y: y,
-            radius: 3.0
+            radius: 5.0
         }
+    }
+
+    pub fn collide(&self, p: (f32, f32)) -> bool {
+        let distance = ((p.0 - self.x).powi(2) + (p.1 - self.y).powi(2)).sqrt();
+        return distance <= self.radius
     }
 }
 
